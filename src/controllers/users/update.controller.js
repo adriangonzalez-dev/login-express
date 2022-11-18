@@ -8,7 +8,11 @@ const updateUserController =async (req=request, res=response)=> {
         /* avatar: req.image ? req.image.src : null,
         avatar_public_id: req.image ?  req.image.public_id : null */
     try {
-        await userUpdateService(id,data)
+        await userUpdateService(id,{
+            ...data,
+            avatar: req.image ? req.image.secure_url : null,
+            avatar_public_id: req.image ?  req.image.public_id : null
+        })
         return res.status(201).json({
             msg: 'updated ok'
         })

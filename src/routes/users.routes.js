@@ -4,6 +4,9 @@ const { createUserController,
         getByIdUserController,
         userGetAllController,
         deleteUserController } = require("../controllers/users");
+const { updateImage } = require("../middlewares/updateImage");
+const uploadAvatar = require("../middlewares/uploadAvatar");
+const { uploadCloudinary } = require("../middlewares/uploadCloudinary");
 const router = express.Router();
 
 /* //controllers
@@ -37,8 +40,8 @@ router.delete("/delete", usersControllers.deleteUser); */
 /**** API**** */
 router.get('/', userGetAllController);
 router.get('/:id',getByIdUserController);
-router.post('/',createUserController);
-router.put('/:id', updateUserController);
+router.post('/',uploadAvatar.single('avatar'),uploadCloudinary,createUserController);
+router.put('/:id', uploadAvatar.single('avatar'), updateImage,updateUserController);
 router.delete('/:id', deleteUserController)
 
 module.exports = router

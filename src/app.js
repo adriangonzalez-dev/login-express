@@ -18,12 +18,6 @@ app.use(express.static(path.join(__dirname, "../public")))
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
-cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME_CLOUDINARY,
-    api_key: process.env.API_KEY_CLOUDINARY,
-    api_secret: process.env.API_SECRET_CLOUDINARY
-    });
-
 //Routes middlewares
 app.use("/api/users", usersRouter);
 app.use('/api/roles', rolesRouter);
