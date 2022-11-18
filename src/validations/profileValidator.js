@@ -18,12 +18,12 @@ const profileValidator = [
         }
     }).withMessage("Las contraseñas deben coincidir"),
 
-    body("avatar").custom((value, {req})=>{
+    /*body("avatar").custom((value, {req})=>{
        if(req.file.mimetype === "image/png" || req.file.mimetype === "image/jpg"){
             return true
        }
         return false
-    }).withMessage("Debe ingresar solo imagenes jpg o png")
+    }).withMessage("Debe ingresar solo imagenes jpg o png")*/
 ]
 
 module.exports = profileValidator
