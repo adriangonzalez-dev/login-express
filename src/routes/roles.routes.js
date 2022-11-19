@@ -31,7 +31,6 @@ router.put("/profile" ,uploadAvatar.single("avatar"),profileValidator ,usersCont
 
 router.delete("/delete", usersControllers.deleteUser); */
 /**** API**** */
-router.get('/', roleGetAllController);
+router.get("/", roleGetAllController);
 
-
-module.exports = router
+module.exports = router;

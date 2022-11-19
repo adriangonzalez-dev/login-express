@@ -1,21 +1,25 @@
-# *Comandos sequelize-cli para modelos y migraciones*
+# _Comandos sequelize-cli para modelos y migraciones_
 
-### *Inicializar sequelize en el proyecto*
+### _Inicializar sequelize en el proyecto_
+
 ```
 npx sequelize-cli init
 ```
 
-### *Crear db si no existe*
+### _Crear db si no existe_
+
 ```
 npx sequelize-cli db:create
 ```
 
-### *Crear un modelo y su migracion*
+### _Crear un modelo y su migracion_
+
 ```
 npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string,password:string,avatar:string,roleId:integer
 ```
 
-### *Llamar a la migración para crear tabla en db*
+### _Llamar a la migración para crear tabla en db_
+
 ```
 npx sequelize-cli db:migrate
 ```
