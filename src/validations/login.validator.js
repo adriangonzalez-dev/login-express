@@ -6,4 +6,6 @@ let loginValidator = [
   check("password").notEmpty(),
 ];
 
-module.exports = loginValidator;
+module.exports = {
+  loginValidator,
+};

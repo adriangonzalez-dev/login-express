@@ -1,4 +1,6 @@
 const express = require("express");
+const router = express.Router();
+//Controllers
 const {
   createUserController,
   updateUserController,
@@ -6,18 +8,31 @@ const {
   userGetAllController,
   deleteUserController,
 } = require("../controllers/users");
-const { catchErrors } = require("../middlewares/catchErrors");
-const { updateImage } = require("../middlewares/updateImage");
-const uploadAvatar = require("../middlewares/uploadAvatar");
-const { uploadCloudinary } = require("../middlewares/uploadCloudinary");
-const { createValidator } = require("../validations/create.validator");
-const { idValidator } = require("../validations/getId.validator");
-const router = express.Router();
 
-router.get("/", userGetAllController);
-router.get("/:id", idValidator, catchErrors, getByIdUserController);
+//Middlewars
+const {
+  accessWithJwt,
+  catchErrors,
+  updateImage,
+  uploadAvatar,
+  uploadCloudinary,
+} = require("../middlewares");
+
+//Validations
+const { createValidator, idValidator } = require("../validations");
+
+//Routes
+router.get("/", accessWithJwt, userGetAllController);
+router.get(
+  "/:id",
+  accessWithJwt,
+  idValidator,
+  catchErrors,
+  getByIdUserController
+);
 router.post(
   "/",
+  accessWithJwt,
   createValidator,
   uploadAvatar.single("avatar"),
   catchErrors,
@@ -26,12 +41,19 @@ router.post(
 );
 router.put(
   "/:id",
+  accessWithJwt,
   idValidator,
   uploadAvatar.single("avatar"),
   catchErrors,
   updateImage,
   updateUserController
 );
-router.delete("/:id", idValidator, catchErrors, deleteUserController);
+router.delete(
+  "/:id",
+  accessWithJwt,
+  idValidator,
+  catchErrors,
+  deleteUserController
+);
 
 module.exports = router;

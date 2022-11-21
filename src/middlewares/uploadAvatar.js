@@ -21,4 +21,6 @@ const filterMimetype = (req, file, cb) => {
 
 const uploadAvatar = multer({ storage, fileFilter: filterMimetype });
 
-module.exports = uploadAvatar;
+module.exports = {
+  uploadAvatar,
+};

@@ -28,15 +28,15 @@ const idExists = async (id) => {
 };
 
 const emailNotExists = async (email) => {
-    const userEmail = await getUserByEmailService(email);
-    if (!userEmail) {
-      throw new Error();
-    }
-  };
+  const userEmail = await getUserByEmailService(email);
+  if (!userEmail) {
+    throw new Error();
+  }
+};
 
 module.exports = {
   emailExists,
   roleExists,
   idExists,
-  emailNotExists
+  emailNotExists,
 };
