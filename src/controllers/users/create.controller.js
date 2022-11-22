@@ -15,8 +15,13 @@ const createUserController = async (req = request, res = response) => {
     avatar_public_id: req.image ? req.image.public_id : null,
   };
   const newUser = await userCreateService(data);
+  const {id,firstName, lastName, email,avatar} = newUser.dataValues
   return res.status(201).json({
-    ...newUser,
+    id,
+    firstName,
+    lastName,
+    email,
+    avatar
   });
 };
 
