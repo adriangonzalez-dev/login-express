@@ -8,9 +8,9 @@ const app = express();
 const path = require("path");
 
 //Routes
-const usersRouter = require("./src/routes/users.routes");
-const rolesRouter = require("./src/routes/roles.routes");
-const authRouter = require("./src/routes/auth.routes");
+const usersRouter = require("./routes/users.routes");
+const rolesRouter = require("./routes/roles.routes");
+const authRouter = require("./routes/auth.routes");
 
 //Middlewares
 app.use(express.static(path.join(__dirname, "../public")));
