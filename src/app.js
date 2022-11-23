@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3030;
 const express = require("express");
 const app = express();
 const path = require("path");
+const cors = require("cors")
 
 //Routes
 const usersRouter = require("./routes/users.routes");
@@ -13,6 +14,7 @@ const rolesRouter = require("./routes/roles.routes");
 const authRouter = require("./routes/auth.routes");
 
 //Middlewares
+app.use(cors())
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
