@@ -1,4 +1,4 @@
-const { accessWithJwt } = require("./AccessWithJwt");
+const { accessWithJwt } = require("./accessWithJwt");
 const { catchErrors } = require("./catchErrors");
 const { updateImage } = require("./updateImage");
 const { uploadAvatar } = require("./uploadAvatar");
