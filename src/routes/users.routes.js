@@ -13,9 +13,7 @@ const {
 const {
   accessWithJwt,
   catchErrors,
-  updateImage,
-  uploadAvatar,
-  uploadCloudinary,
+  adminAccess
 } = require("../middlewares");
 
 //Validations
@@ -33,6 +31,7 @@ router.get(
 router.post(
   "/",
   accessWithJwt,
+  adminAccess,
   createValidator,
   catchErrors,
   createUserController
@@ -40,6 +39,7 @@ router.post(
 router.put(
   "/:id",
   accessWithJwt,
+  adminAccess,
   idValidator,
   catchErrors,
   updateUserController
@@ -47,6 +47,7 @@ router.put(
 router.delete(
   "/:id",
   accessWithJwt,
+  adminAccess,
   idValidator,
   catchErrors,
   deleteUserController
