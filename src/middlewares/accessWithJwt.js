@@ -9,7 +9,8 @@ const accessWithJwt = (req = request, res = response, next) => {
     });
   }
   try {
-    const jwtValid = jwt.verify(token, process.env.JWT_SECRET);
+    const {id, role} = jwt.verify(token, process.env.JWT_SECRET);
+    req.role = role;
     next();
   } catch (error) {
     return res.status(401).json({

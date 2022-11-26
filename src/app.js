@@ -9,9 +9,10 @@ const path = require("path");
 const cors = require("cors")
 
 //Routes
-const usersRouter = require("./routes/users.routes");
-const rolesRouter = require("./routes/roles.routes");
-const authRouter = require("./routes/auth.routes");
+const { usersRouter,
+        authRouter,
+        rolesRouter,
+        uploadRouter} = require("./routes")
 
 //Middlewares
 app.use(cors())
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use("/api/users", usersRouter);
 app.use("/api/roles", rolesRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/upload", uploadRouter)
 
 //Local Server
 app.listen(PORT, () => {

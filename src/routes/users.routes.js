@@ -34,18 +34,14 @@ router.post(
   "/",
   accessWithJwt,
   createValidator,
-  uploadAvatar.single("avatar"),
   catchErrors,
-  uploadCloudinary,
   createUserController
 );
 router.put(
   "/:id",
   accessWithJwt,
   idValidator,
-  uploadAvatar.single("avatar"),
   catchErrors,
-  updateImage,
   updateUserController
 );
 router.delete(
