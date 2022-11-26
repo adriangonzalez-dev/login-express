@@ -10,11 +10,7 @@ const {
 } = require("../controllers/users");
 
 //Middlewars
-const {
-  accessWithJwt,
-  catchErrors,
-  adminAccess
-} = require("../middlewares");
+const { accessWithJwt, catchErrors, adminAccess } = require("../middlewares");
 
 //Validations
 const { createValidator, idValidator } = require("../validations");

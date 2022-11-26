@@ -8,7 +8,7 @@ cloudinary.config({
 
 const userDeleteService = async (id) => {
   const userDeleted = await user.findByPk(id);
-  if(userDeleted.avatar){
+  if (userDeleted.avatar) {
     await cloudinary.uploader.destroy(userDeleted.avatar_public_id);
   }
   await userDeleted.destroy();

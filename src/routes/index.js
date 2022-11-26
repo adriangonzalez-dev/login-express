@@ -4,8 +4,8 @@ const usersRouter = require("./users.routes");
 const uploadRouter = require("./uploads.routes");
 
 module.exports = {
-    rolesRouter,
-    authRouter,
-    usersRouter,
-    uploadRouter,
-}
+  rolesRouter,
+  authRouter,
+  usersRouter,
+  uploadRouter,
+};
